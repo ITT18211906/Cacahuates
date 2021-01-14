@@ -10,7 +10,7 @@ namespace Diseño_Modelado
         //SqlConnection Conexion = new SqlConnection(@"Data Source=LAPTOP-0JPSC3F9\SQL;Initial Catalog= Cacahuate; integrated security=true");
         SqlConnection Conexion = new SqlConnection(@"Server=localhost;Database= Cacahuate; integrated security=true");
 
-        float acumuladorPrecio = 0;
+        double acumuladorPrecio = 0;
 
         public Venta()
         {
@@ -48,10 +48,10 @@ namespace Diseño_Modelado
             Conexion.Open();
 
             int codigoProducto = 0;
-            float cantidadDisponible = 0;
-            float cantidadSolicitada = 0;
+            double cantidadDisponible = 0;
+            double cantidadSolicitada = 0;
             string nombre = "";
-            float precio = 0;
+            double precio = 0;
 
             codigoProducto = int.Parse(textBox1.Text);
 
@@ -62,8 +62,8 @@ namespace Diseño_Modelado
             while (leerBuscarProducto.Read())
             {
                 nombre = leerBuscarProducto.GetString(1);
-                cantidadDisponible = leerBuscarProducto.GetFloat(2);
-                precio = leerBuscarProducto.GetFloat(3);
+                cantidadDisponible = leerBuscarProducto.GetDouble(2);
+                precio = leerBuscarProducto.GetDouble(3);
             }
             leerBuscarProducto.Close();
 
